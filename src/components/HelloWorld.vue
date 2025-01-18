@@ -5,9 +5,18 @@ defineProps<{
 </script>
 
 <template>
-  <div class="greetings">
+  <div>
+    <div class="greetings">
+      test for sass
+    </div>
     {{ msg }}
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+$color: red;
+
+.greetings {
+  color: $color;
+}
+</style>
