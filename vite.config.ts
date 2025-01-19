@@ -8,6 +8,7 @@ import pages from 'vite-plugin-pages'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import Layouts from 'vite-plugin-vue-layouts'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -35,6 +36,11 @@ export default defineConfig({
       ],
     }),
     Components(),
+    Layouts({
+      layoutsDirs: 'src/layouts',
+      pagesDirs: 'src/pages',
+      defaultLayout: 'default',
+    }),
   ],
   resolve: {
     alias: {
