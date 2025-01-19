@@ -16,6 +16,8 @@
         </p>
       </div>
       <HelloWorld msg="test for components"></HelloWorld>
+      <div class="i-mdi-home text-3xl"></div>
+      <div class="i-mdi-anchor text-orange-300"></div>
     </div>
   </div>
 </template>
