@@ -17,15 +17,18 @@
       </div>
       <HelloWorld msg="test for components"></HelloWorld>
       <div class="i-mdi-home text-3xl"></div>
-      <div class="i-mdi-anchor text-orange-300"></div>
+      <div class="i-mdi-anchor text-orange-400"></div>
+      <ReloadPrompt></ReloadPrompt>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { registerSW } from 'virtual:pwa-register';
+
+//dark mode
 const currentTheme = ref<'light' | 'dark' | 'system'>('system')
 const isDark = usePreferredDark()
-
 const handleThemeChange = () => {
   if (currentTheme.value === 'system') {
     // Check system preference
@@ -44,22 +47,20 @@ const handleThemeChange = () => {
   localStorage.setItem('theme', currentTheme.value)
 }
 
-// Watch for system theme changes
-// const watchSystemTheme = () => {
-
-// const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-// mediaQuery.addEventListener('change', (e) => {
-//   if (currentTheme.value === 'system') {
-//     if (e.matches) {
-//       document.documentElement.classList.add('dark')
-//     } else {
-//       document.documentElement.classList.remove('dark')
-//     }
-//   }
-// })
-// }
-
 onMounted(() => {
+
+  registerSW({
+    immediate: true,
+    onNeedRefresh() {
+      console.log('onNeedRefresh')
+    },
+    onRegisteredSW(url, registration) {
+      console.log('SW registered url:', url);
+      setInterval(() => {
+        registration?.update()
+      }, 20000)
+    }
+  })
   // Load saved preference
   const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'system' | null
   if (savedTheme) {
@@ -77,6 +78,9 @@ watch(isDark, (newV) => {
   }
 })
 </script>
+
+
+
 <route lang="yaml">
 meta:
   layout:default
