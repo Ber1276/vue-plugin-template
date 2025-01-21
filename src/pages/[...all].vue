@@ -1,7 +1,6 @@
-import Layouts from 'vite-plugin-vue-layouts';
 <template>
-  <div>
-    this is about page
+  <div class="min-h-screen flex justify-center items-center">
+    Not Found
   </div>
 </template>
 
@@ -10,7 +9,8 @@ import Layouts from 'vite-plugin-vue-layouts';
 </script>
 
 <style scoped></style>
+
 <route lang="yaml">
 meta:
-  layout: home
+  layout: 404
 </route>

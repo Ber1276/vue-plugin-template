@@ -4,31 +4,34 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import pages from 'vite-plugin-pages'
+// import pages from 'vite-plugin-pages'
+import VueRouter from 'unplugin-vue-router/vite'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Layouts from 'vite-plugin-vue-layouts'
 import { VitePWA } from 'vite-plugin-pwa'
+import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    Layouts({
+      layoutsDirs: 'src/layouts',
+      pagesDirs: 'src/pages',
+      defaultLayout: 'default',
+    }),
+    VueRouter(),
     vue(),
     vueJsx(),
     vueDevTools(),
-    pages(),
+    // pages(),
     UnoCSS(),
     AutoImport({
       include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
       imports: ['vue', 'vue-router', '@vueuse/core'],
     }),
     Components(),
-    Layouts({
-      layoutsDirs: 'src/layouts',
-      pagesDirs: 'src/pages',
-      defaultLayout: 'default',
-    }),
     VitePWA({
       devOptions: {
         enabled: false,
@@ -56,6 +59,10 @@ export default defineConfig({
           },
         ],
       },
+    }),
+    viteMockServe({
+      mockPath: 'mock',
+      enable: false,
     }),
   ],
   resolve: {

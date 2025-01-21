@@ -1,6 +1,6 @@
 <template>
   <div>
-    default layout
+    <h1 class="fixed bg-light-50 text-gray-800 dark:bg-gray-800 dark:text-light-100">default layout</h1>
     <RouterView></RouterView>
   </div>
 </template>
