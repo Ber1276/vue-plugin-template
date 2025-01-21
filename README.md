@@ -1,61 +1,84 @@
 # pk-front-vue3
 
-This template should help get you started developing with Vue 3 in Vite.
+## 项目简介
 
-## Recommended IDE Setup
+`pk-front-vue3` 是一个基于 Vite、Vue 3 和 UnoCSS 的前端项目，集成了 PWA、页面路由、布局等功能。
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 主要特性
 
-## Type Support for `.vue` Imports in TS
+- **Vite**: 快速的开发构建工具
+- **Vue 3**: 现代化的前端框架
+- **UnoCSS**: 实用的 CSS 工具库
+- **PWA**: 渐进式 Web 应用支持
+- **自动导入**: 自动导入 Vue 组件和 API
+- **布局系统**: 基于 `vite-plugin-vue-layouts` 的布局系统
+- **Mock 数据**: 使用 `vite-plugin-mock` 进行数据模拟
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## 安装与使用
 
-## Customize configuration
+### 克隆项目
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```bash
+git clone https://github.com/your-repo/pk-front-vue3.git
+cd pk-front-vue3
 ```
 
-### Compile and Hot-Reload for Development
+### 安装依赖
 
-```sh
-npm run dev
+```bash
+pnpm install
 ```
 
-### Type-Check, Compile and Minify for Production
+### 启动开发服务器
 
-```sh
-npm run build
+```bash
+pnpm dev
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### 构建项目
 
-```sh
-npm run test:unit
+```bash
+pnpm build
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+### 预览构建结果
 
-```sh
-npm run test:e2e:dev
+```bash
+pnpm preview
 ```
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
+### 运行单元测试
 
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
+```bash
+pnpm test:unit
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### 运行端到端测试
 
-```sh
-npm run lint
+```bash
+pnpm test:e2e
 ```
+
+## 项目结构
+
+```plaintext
+pk-front-vue3/
+├── src/
+│   ├── layouts/          # 布局文件
+│   ├── pages/            # 页面文件
+│   ├── components/       # 组件文件
+│   ├── assets/           # 静态资源
+│   └── main.ts           # 入口文件
+├── public/               # 公共资源
+├── vite.config.ts        # Vite 配置
+├── package.json          # 项目依赖
+└── README.md             # 项目说明
+```
+
+## 贡献
+
+欢迎提交 Issue 和 Pull Request 来贡献代码。
+
+## 许可证
+
+本项目基于 MIT 许可证。
